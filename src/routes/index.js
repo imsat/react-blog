@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PublicRoutes from "./PublicRoutes";
 import Dashboard from "../pages/Dashboard";
-import Order from "../pages/Order";
+import Post from "../pages/Post";
 
 function AppRoutes() {
   return (
@@ -10,7 +10,7 @@ function AppRoutes() {
       <Routes>
         <Route element={<PublicRoutes />}>
              <Route path="/" element={<Dashboard />}></Route>
-             <Route path="/order" element={<Order />}></Route>
+             <Route path="/posts" element={<Post />}></Route>
         </Route>
        
       </Routes>
