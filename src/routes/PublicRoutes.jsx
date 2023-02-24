@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import AppNavbar from "../compponents/AppNavbar";
 import AppFooter from "../compponents/AppFooter";
 import AppSidebar from "../compponents/AppSidebar";
@@ -6,7 +6,6 @@ import AppSidebar from "../compponents/AppSidebar";
 const PublicRoutes = () => {
   return (
     <>
-      {/* <Navigate to="/" replace={true} /> */}
       <AppNavbar />
       <div className="container-fluid">
         <div className="row">
