@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
-
+import { NavLink } from "react-router-dom";
 function Post() {
   const [posts, setPosts] = useState([]);
 
@@ -28,7 +28,7 @@ function Post() {
               <th>Id</th>
               <th>Title</th>
               <th>Body</th>
-              <th style={{width:'15%'}}>Action</th>
+              <th style={{ width: "15%" }}>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -40,10 +40,16 @@ function Post() {
                     <td>{post.title}</td>
                     <td>{post.body}</td>
                     <td>
-                      <button className="btn btn-sm btn-info me-1">View</button> 
-                      <button className="btn btn-sm btn-primary me-1">Edit</button> 
+                      <NavLink
+                        to={`/posts/${post.id}`}
+                        className="btn btn-sm btn-info me-1">
+                        View
+                      </NavLink>
+                      <button className="btn btn-sm btn-primary me-1">
+                        Edit
+                      </button>
                       <button className="btn btn-sm btn-danger">Delete</button>
-                      </td>
+                    </td>
                   </tr>
                 );
               })}
