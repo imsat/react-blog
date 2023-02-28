@@ -4,7 +4,7 @@ function AppNavbar() {
   return (
     <header className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
       <Link className="navbar-brand col-md-3 col-lg-2 me-0 px-3 fs-6" to="/">
-        My Blog{" "}
+        My Blog
       </Link>
       <button
         className="navbar-toggler position-absolute d-md-none collapsed"

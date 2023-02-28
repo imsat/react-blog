@@ -1,18 +1,54 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
-import { NavLink } from "react-router-dom";
+import axios from "axios"
+import { useState, useEffect } from "react"
+import { NavLink } from "react-router-dom"
+import Swal from "sweetalert2"
+
 function Post() {
-  const [posts, setPosts] = useState([]);
+  const [posts, setPosts] = useState([])
 
   useEffect(() => {
-    getPosts();
-  }, []);
+    getPosts()
+  }, [])
 
   const getPosts = () => {
-    axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => {
-      setPosts(response.data);
-    });
-  };
+    axios
+      .get("https://jsonplaceholder.typicode.com/posts")
+      .then((response) => {
+        setPosts(response.data)
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+  }
+
+  const deletePost = (id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://jsonplaceholder.typicode.com/posts/${id}`)
+          .then((response) => {
+            Swal.fire({
+              text: "Deleted successfully!",
+              toast: true,
+              position: "top-end",
+              showConfirmButton: false,
+              timer: 1000,
+            })
+          })
+          .catch((error) => {
+            console.log(error)
+          })
+      }
+    })
+  }
 
   return (
     <>
@@ -48,15 +84,19 @@ function Post() {
                       <button className="btn btn-sm btn-primary me-1">
                         Edit
                       </button>
-                      <button className="btn btn-sm btn-danger">Delete</button>
+                      <button
+                        onClick={() => deletePost(post.id)}
+                        className="btn btn-sm btn-danger">
+                        Delete
+                      </button>
                     </td>
                   </tr>
-                );
+                )
               })}
           </tbody>
         </table>
       </div>
     </>
-  );
+  )
 }
-export default Post;
+export default Post

@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom"
 function AppSidebar() {
   return (
     <nav
@@ -19,6 +19,6 @@ function AppSidebar() {
         </ul>
       </div>
     </nav>
-  );
+  )
 }
-export default AppSidebar;
+export default AppSidebar
