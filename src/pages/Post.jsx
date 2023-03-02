@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import Swal from "sweetalert2"
 
 function Post() {
@@ -53,10 +53,15 @@ function Post() {
   return (
     <>
       <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 className="h2">Post</h1>
+        <h1>Post</h1>
       </div>
 
-      <h4>All Posts</h4>
+      <h4>
+        All Posts
+        <Link to="/add-post" className="btn btn-sm btn-primary float-end ">
+          Add New
+        </Link>
+      </h4>
       <div className="table-responsive">
         <table className="table table-striped table-sm">
           <thead>
@@ -81,9 +86,11 @@ function Post() {
                         className="btn btn-sm btn-info me-1">
                         View
                       </NavLink>
-                      <button className="btn btn-sm btn-primary me-1">
+                      <NavLink
+                        to={`/posts/edit/${post.id}`}
+                        className="btn btn-sm btn-primary me-1">
                         Edit
-                      </button>
+                      </NavLink>
                       <button
                         onClick={() => deletePost(post.id)}
                         className="btn btn-sm btn-danger">

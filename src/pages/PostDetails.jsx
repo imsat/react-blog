@@ -21,7 +21,6 @@ function PostDetails() {
         <h1 className="h2 m-auto">Post Details</h1>
       </div>
       <div className="row">
-        <div className="col-4 m-auto">
           <div className="card bg-info bg-opacity-25">
             <div className="card-body">
               <div className="row">
@@ -38,7 +37,6 @@ function PostDetails() {
               </div>
             </div>
           </div>
-        </div>
       </div>
     </>
   )
